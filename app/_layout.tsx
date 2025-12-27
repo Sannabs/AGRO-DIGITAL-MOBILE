@@ -4,7 +4,6 @@ import "./global.css";
 import { useEffect } from "react";
 
 export default function RootLayout() {
-  const isAuthenticated = false;
 
   const [fontsLoaded, error] = useFonts({
     "Quicksand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
@@ -20,7 +19,6 @@ export default function RootLayout() {
     if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded, error]);
 
-  if (isAuthenticated) return <Redirect href="/welcome" />;
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }
