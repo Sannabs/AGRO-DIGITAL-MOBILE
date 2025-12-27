@@ -1,9 +1,11 @@
-import { SplashScreen, Stack } from "expo-router";
+import { Redirect, SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import "./global.css";
 import { useEffect } from "react";
 
 export default function RootLayout() {
+  const isAuthenticated = false;
+
   const [fontsLoaded, error] = useFonts({
     "Quicksand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
     "Quicksand-SemiBold": require("../assets/fonts/Quicksand-SemiBold.ttf"),
@@ -17,6 +19,8 @@ export default function RootLayout() {
 
     if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded, error]);
+
+  if (isAuthenticated) return <Redirect href="/welcome" />;
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }

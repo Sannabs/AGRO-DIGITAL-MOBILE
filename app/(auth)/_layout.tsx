@@ -1,15 +1,13 @@
 import {
   View,
-  Text,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   Dimensions,
   ImageBackground,
-  Image,
 } from "react-native";
 import React from "react";
-import { Slot } from "expo-router";
+import { Stack } from "expo-router";
 
 const _layout = () => {
   return (
@@ -30,14 +28,15 @@ const _layout = () => {
             resizeMode="stretch"
           />
 
-          <Image
+          {/* <Image
             source={}
             className="self-center size-48 absolute -bottom-16 z-10"
             resizeMode="contain"
-          />
+          /> */
+          }
         </View>
 
-        <Slot />
+        <Stack screenOptions={{ headerShown: false }} />
       </ScrollView>
     </KeyboardAvoidingView>
   );
